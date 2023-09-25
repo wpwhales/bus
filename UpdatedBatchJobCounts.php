@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Bus;
+namespace WPWhales\Bus;
 
 class UpdatedBatchJobCounts
 {

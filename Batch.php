@@ -1,14 +1,14 @@
 <?php
 
-namespace Illuminate\Bus;
+namespace WPWhales\Bus;
 
 use Carbon\CarbonImmutable;
 use Closure;
-use Illuminate\Contracts\Queue\Factory as QueueFactory;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Queue\CallQueuedClosure;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
+use WPWhales\Contracts\Queue\Factory as QueueFactory;
+use WPWhales\Contracts\Support\Arrayable;
+use WPWhales\Queue\CallQueuedClosure;
+use WPWhales\Support\Arr;
+use WPWhales\Support\Collection;
 use JsonSerializable;
 use Throwable;
 
@@ -17,14 +17,14 @@ class Batch implements Arrayable, JsonSerializable
     /**
      * The queue factory implementation.
      *
-     * @var \Illuminate\Contracts\Queue\Factory
+     * @var \WPWhales\Contracts\Queue\Factory
      */
     protected $queue;
 
     /**
      * The repository implementation.
      *
-     * @var \Illuminate\Bus\BatchRepository
+     * @var \WPWhales\Bus\BatchRepository
      */
     protected $repository;
 
@@ -101,8 +101,8 @@ class Batch implements Arrayable, JsonSerializable
     /**
      * Create a new batch instance.
      *
-     * @param  \Illuminate\Contracts\Queue\Factory  $queue
-     * @param  \Illuminate\Bus\BatchRepository  $repository
+     * @param  \WPWhales\Contracts\Queue\Factory  $queue
+     * @param  \WPWhales\Bus\BatchRepository  $repository
      * @param  string  $id
      * @param  string  $name
      * @param  int  $totalJobs
@@ -155,7 +155,7 @@ class Batch implements Arrayable, JsonSerializable
     /**
      * Add additional jobs to the batch.
      *
-     * @param  \Illuminate\Support\Enumerable|object|array  $jobs
+     * @param  \WPWhales\Support\Enumerable|object|array  $jobs
      * @return self
      */
     public function add($jobs)
@@ -200,7 +200,7 @@ class Batch implements Arrayable, JsonSerializable
      * Prepare a chain that exists within the jobs being added.
      *
      * @param  array  $chain
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     protected function prepareBatchedChain(array $chain)
     {
@@ -266,7 +266,7 @@ class Batch implements Arrayable, JsonSerializable
      * Decrement the pending jobs for the batch.
      *
      * @param  string  $jobId
-     * @return \Illuminate\Bus\UpdatedBatchJobCounts
+     * @return \WPWhales\Bus\UpdatedBatchJobCounts
      */
     public function decrementPendingJobs(string $jobId)
     {
@@ -349,7 +349,7 @@ class Batch implements Arrayable, JsonSerializable
      * Increment the failed jobs for the batch.
      *
      * @param  string  $jobId
-     * @return \Illuminate\Bus\UpdatedBatchJobCounts
+     * @return \WPWhales\Bus\UpdatedBatchJobCounts
      */
     public function incrementFailedJobs(string $jobId)
     {
@@ -420,7 +420,7 @@ class Batch implements Arrayable, JsonSerializable
      * Invoke a batch callback handler.
      *
      * @param  callable  $handler
-     * @param  \Illuminate\Bus\Batch  $batch
+     * @param  \WPWhales\Bus\Batch  $batch
      * @param  \Throwable|null  $e
      * @return void
      */

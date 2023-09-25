@@ -1,5 +1,5 @@
 {
-    "name": "illuminate/bus",
+    "name": "wpwhales/bus",
     "description": "The Illuminate Bus package.",
     "license": "MIT",
     "homepage": "https://laravel.com",
@@ -15,14 +15,14 @@
     ],
     "require": {
         "php": "^8.2",
-        "illuminate/collections": "^11.0",
-        "illuminate/contracts": "^11.0",
-        "illuminate/pipeline": "^11.0",
-        "illuminate/support": "^11.0"
+        "wpwhales/collections": "dev-master",
+        "wpwhales/contracts": "dev-master",
+        "wpwhales/pipeline": "dev-master",
+        "wpwhales/support": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "Illuminate\\Bus\\": ""
+            "WPWhales\\Bus\\": ""
         }
     },
     "extra": {
@@ -31,7 +31,7 @@
         }
     },
     "suggest": {
-        "illuminate/queue": "Required to use closures when chaining jobs (^7.0)."
+        "wpwhales/queue": "Required to use closures when chaining jobs (^7.0)."
     },
     "config": {
         "sort-packages": true

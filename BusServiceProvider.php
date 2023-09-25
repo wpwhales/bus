@@ -1,12 +1,12 @@
 <?php
 
-namespace Illuminate\Bus;
+namespace WPWhales\Bus;
 
-use Illuminate\Contracts\Bus\Dispatcher as DispatcherContract;
-use Illuminate\Contracts\Bus\QueueingDispatcher as QueueingDispatcherContract;
-use Illuminate\Contracts\Queue\Factory as QueueFactoryContract;
-use Illuminate\Contracts\Support\DeferrableProvider;
-use Illuminate\Support\ServiceProvider;
+use WPWhales\Contracts\Bus\Dispatcher as DispatcherContract;
+use WPWhales\Contracts\Bus\QueueingDispatcher as QueueingDispatcherContract;
+use WPWhales\Contracts\Queue\Factory as QueueFactoryContract;
+use WPWhales\Contracts\Support\DeferrableProvider;
+use WPWhales\Support\ServiceProvider;
 
 class BusServiceProvider extends ServiceProvider implements DeferrableProvider
 {

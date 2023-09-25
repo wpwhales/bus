@@ -1,10 +1,10 @@
 <?php
 
-namespace Illuminate\Bus;
+namespace WPWhales\Bus;
 
 use Closure;
-use Illuminate\Queue\CallQueuedClosure;
-use Illuminate\Support\Arr;
+use WPWhales\Queue\CallQueuedClosure;
+use WPWhales\Support\Arr;
 use RuntimeException;
 
 trait Queueable
@@ -230,7 +230,7 @@ trait Queueable
         if ($job instanceof Closure) {
             if (! class_exists(CallQueuedClosure::class)) {
                 throw new RuntimeException(
-                    'To enable support for closure jobs, please install the illuminate/queue package.'
+                    'To enable support for closure jobs, please install the WPWhales/queue package.'
                 );
             }
 

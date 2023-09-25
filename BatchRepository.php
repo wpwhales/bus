@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Bus;
+namespace WPWhales\Bus;
 
 use Closure;
 
@@ -11,7 +11,7 @@ interface BatchRepository
      *
      * @param  int  $limit
      * @param  mixed  $before
-     * @return \Illuminate\Bus\Batch[]
+     * @return \WPWhales\Bus\Batch[]
      */
     public function get($limit, $before);
 
@@ -19,15 +19,15 @@ interface BatchRepository
      * Retrieve information about an existing batch.
      *
      * @param  string  $batchId
-     * @return \Illuminate\Bus\Batch|null
+     * @return \WPWhales\Bus\Batch|null
      */
     public function find(string $batchId);
 
     /**
      * Store a new pending batch.
      *
-     * @param  \Illuminate\Bus\PendingBatch  $batch
-     * @return \Illuminate\Bus\Batch
+     * @param  \WPWhales\Bus\PendingBatch  $batch
+     * @return \WPWhales\Bus\Batch
      */
     public function store(PendingBatch $batch);
 
@@ -45,7 +45,7 @@ interface BatchRepository
      *
      * @param  string  $batchId
      * @param  string  $jobId
-     * @return \Illuminate\Bus\UpdatedBatchJobCounts
+     * @return \WPWhales\Bus\UpdatedBatchJobCounts
      */
     public function decrementPendingJobs(string $batchId, string $jobId);
 
@@ -54,7 +54,7 @@ interface BatchRepository
      *
      * @param  string  $batchId
      * @param  string  $jobId
-     * @return \Illuminate\Bus\UpdatedBatchJobCounts
+     * @return \WPWhales\Bus\UpdatedBatchJobCounts
      */
     public function incrementFailedJobs(string $batchId, string $jobId);
 

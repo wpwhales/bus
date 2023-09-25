@@ -1,11 +1,11 @@
 <?php
 
-namespace Illuminate\Bus;
+namespace WPWhales\Bus;
 
 use Carbon\CarbonImmutable;
-use Illuminate\Container\Container;
-use Illuminate\Support\Str;
-use Illuminate\Support\Testing\Fakes\BatchFake;
+use WPWhales\Container\Container;
+use WPWhales\Support\Str;
+use WPWhales\Support\Testing\Fakes\BatchFake;
 
 trait Batchable
 {
@@ -19,14 +19,14 @@ trait Batchable
     /**
      * The fake batch, if applicable.
      *
-     * @var \Illuminate\Support\Testing\Fakes\BatchFake
+     * @var \WPWhales\Support\Testing\Fakes\BatchFake
      */
     private $fakeBatch;
 
     /**
      * Get the batch instance for the job, if applicable.
      *
-     * @return \Illuminate\Bus\Batch|null
+     * @return \WPWhales\Bus\Batch|null
      */
     public function batch()
     {
@@ -77,7 +77,7 @@ trait Batchable
      * @param  \Carbon\CarbonImmutable  $createdAt
      * @param  \Carbon\CarbonImmutable|null  $cancelledAt
      * @param  \Carbon\CarbonImmutable|null  $finishedAt
-     * @return array{0: $this, 1: \Illuminate\Support\Testing\Fakes\BatchFake}
+     * @return array{0: $this, 1: \WPWhales\Support\Testing\Fakes\BatchFake}
      */
     public function withFakeBatch(string $id = '',
                                   string $name = '',

@@ -1,22 +1,22 @@
 <?php
 
-namespace Illuminate\Bus;
+namespace WPWhales\Bus;
 
-use Illuminate\Contracts\Cache\Repository as Cache;
+use WPWhales\Contracts\Cache\Repository as Cache;
 
 class UniqueLock
 {
     /**
      * The cache repository implementation.
      *
-     * @var \Illuminate\Contracts\Cache\Repository
+     * @var \WPWhales\Contracts\Cache\Repository
      */
     protected $cache;
 
     /**
      * Create a new unique lock manager instance.
      *
-     * @param  \Illuminate\Contracts\Cache\Repository  $cache
+     * @param  \WPWhales\Contracts\Cache\Repository  $cache
      * @return void
      */
     public function __construct(Cache $cache)

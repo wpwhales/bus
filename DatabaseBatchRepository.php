@@ -1,29 +1,29 @@
 <?php
 
-namespace Illuminate\Bus;
+namespace WPWhales\Bus;
 
 use Carbon\CarbonImmutable;
 use Closure;
 use DateTimeInterface;
-use Illuminate\Database\Connection;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Database\PostgresConnection;
-use Illuminate\Database\Query\Expression;
-use Illuminate\Support\Str;
+use WPWhales\Database\Connection;
+use WPWhales\Database\Eloquent\ModelNotFoundException;
+use WPWhales\Database\PostgresConnection;
+use WPWhales\Database\Query\Expression;
+use WPWhales\Support\Str;
 
 class DatabaseBatchRepository implements PrunableBatchRepository
 {
     /**
      * The batch factory instance.
      *
-     * @var \Illuminate\Bus\BatchFactory
+     * @var \WPWhales\Bus\BatchFactory
      */
     protected $factory;
 
     /**
      * The database connection instance.
      *
-     * @var \Illuminate\Database\Connection
+     * @var \WPWhales\Database\Connection
      */
     protected $connection;
 
@@ -37,8 +37,8 @@ class DatabaseBatchRepository implements PrunableBatchRepository
     /**
      * Create a new batch repository instance.
      *
-     * @param  \Illuminate\Bus\BatchFactory  $factory
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Bus\BatchFactory  $factory
+     * @param  \WPWhales\Database\Connection  $connection
      * @param  string  $table
      */
     public function __construct(BatchFactory $factory, Connection $connection, string $table)
@@ -53,7 +53,7 @@ class DatabaseBatchRepository implements PrunableBatchRepository
      *
      * @param  int  $limit
      * @param  mixed  $before
-     * @return \Illuminate\Bus\Batch[]
+     * @return \WPWhales\Bus\Batch[]
      */
     public function get($limit = 50, $before = null)
     {
@@ -72,7 +72,7 @@ class DatabaseBatchRepository implements PrunableBatchRepository
      * Retrieve information about an existing batch.
      *
      * @param  string  $batchId
-     * @return \Illuminate\Bus\Batch|null
+     * @return \WPWhales\Bus\Batch|null
      */
     public function find(string $batchId)
     {
@@ -89,8 +89,8 @@ class DatabaseBatchRepository implements PrunableBatchRepository
     /**
      * Store a new pending batch.
      *
-     * @param  \Illuminate\Bus\PendingBatch  $batch
-     * @return \Illuminate\Bus\Batch
+     * @param  \WPWhales\Bus\PendingBatch  $batch
+     * @return \WPWhales\Bus\Batch
      */
     public function store(PendingBatch $batch)
     {
@@ -133,7 +133,7 @@ class DatabaseBatchRepository implements PrunableBatchRepository
      *
      * @param  string  $batchId
      * @param  string  $jobId
-     * @return \Illuminate\Bus\UpdatedBatchJobCounts
+     * @return \WPWhales\Bus\UpdatedBatchJobCounts
      */
     public function decrementPendingJobs(string $batchId, string $jobId)
     {
@@ -156,7 +156,7 @@ class DatabaseBatchRepository implements PrunableBatchRepository
      *
      * @param  string  $batchId
      * @param  string  $jobId
-     * @return \Illuminate\Bus\UpdatedBatchJobCounts
+     * @return \WPWhales\Bus\UpdatedBatchJobCounts
      */
     public function incrementFailedJobs(string $batchId, string $jobId)
     {
@@ -351,7 +351,7 @@ class DatabaseBatchRepository implements PrunableBatchRepository
      * Convert the given raw batch to a Batch object.
      *
      * @param  object  $batch
-     * @return \Illuminate\Bus\Batch
+     * @return \WPWhales\Bus\Batch
      */
     protected function toBatch($batch)
     {
@@ -373,7 +373,7 @@ class DatabaseBatchRepository implements PrunableBatchRepository
     /**
      * Get the underlying database connection.
      *
-     * @return \Illuminate\Database\Connection
+     * @return \WPWhales\Database\Connection
      */
     public function getConnection()
     {
@@ -383,7 +383,7 @@ class DatabaseBatchRepository implements PrunableBatchRepository
     /**
      * Set the underlying database connection.
      *
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Connection  $connection
      * @return void
      */
     public function setConnection(Connection $connection)

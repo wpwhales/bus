@@ -1,13 +1,13 @@
 <?php
 
-namespace Illuminate\Bus;
+namespace WPWhales\Bus;
 
 use Closure;
-use Illuminate\Bus\Events\BatchDispatched;
-use Illuminate\Contracts\Container\Container;
-use Illuminate\Contracts\Events\Dispatcher as EventDispatcher;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
+use WPWhales\Bus\Events\BatchDispatched;
+use WPWhales\Contracts\Container\Container;
+use WPWhales\Contracts\Events\Dispatcher as EventDispatcher;
+use WPWhales\Support\Arr;
+use WPWhales\Support\Collection;
 use Laravel\SerializableClosure\SerializableClosure;
 use Throwable;
 
@@ -16,7 +16,7 @@ class PendingBatch
     /**
      * The IoC container instance.
      *
-     * @var \Illuminate\Contracts\Container\Container
+     * @var \WPWhales\Contracts\Container\Container
      */
     protected $container;
 
@@ -30,7 +30,7 @@ class PendingBatch
     /**
      * The jobs that belong to the batch.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \WPWhales\Support\Collection
      */
     public $jobs;
 
@@ -44,8 +44,8 @@ class PendingBatch
     /**
      * Create a new pending batch instance.
      *
-     * @param  \Illuminate\Contracts\Container\Container  $container
-     * @param  \Illuminate\Support\Collection  $jobs
+     * @param  \WPWhales\Contracts\Container\Container  $container
+     * @param  \WPWhales\Support\Collection  $jobs
      * @return void
      */
     public function __construct(Container $container, Collection $jobs)
@@ -245,7 +245,7 @@ class PendingBatch
     /**
      * Dispatch the batch.
      *
-     * @return \Illuminate\Bus\Batch
+     * @return \WPWhales\Bus\Batch
      *
      * @throws \Throwable
      */
@@ -275,7 +275,7 @@ class PendingBatch
     /**
      * Dispatch the batch after the response is sent to the browser.
      *
-     * @return \Illuminate\Bus\Batch
+     * @return \WPWhales\Bus\Batch
      */
     public function dispatchAfterResponse()
     {
@@ -295,7 +295,7 @@ class PendingBatch
     /**
      * Dispatch an existing batch.
      *
-     * @param  \Illuminate\Bus\Batch  $batch
+     * @param  \WPWhales\Bus\Batch  $batch
      * @return void
      *
      * @throws \Throwable

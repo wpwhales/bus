@@ -1,23 +1,23 @@
 <?php
 
-namespace Illuminate\Bus;
+namespace WPWhales\Bus;
 
 use Carbon\CarbonImmutable;
-use Illuminate\Contracts\Queue\Factory as QueueFactory;
+use WPWhales\Contracts\Queue\Factory as QueueFactory;
 
 class BatchFactory
 {
     /**
      * The queue factory implementation.
      *
-     * @var \Illuminate\Contracts\Queue\Factory
+     * @var \WPWhales\Contracts\Queue\Factory
      */
     protected $queue;
 
     /**
      * Create a new batch factory instance.
      *
-     * @param  \Illuminate\Contracts\Queue\Factory  $queue
+     * @param  \WPWhales\Contracts\Queue\Factory  $queue
      * @return void
      */
     public function __construct(QueueFactory $queue)
@@ -28,7 +28,7 @@ class BatchFactory
     /**
      * Create a new batch instance.
      *
-     * @param  \Illuminate\Bus\BatchRepository  $repository
+     * @param  \WPWhales\Bus\BatchRepository  $repository
      * @param  string  $id
      * @param  string  $name
      * @param  int  $totalJobs
@@ -39,7 +39,7 @@ class BatchFactory
      * @param  \Carbon\CarbonImmutable  $createdAt
      * @param  \Carbon\CarbonImmutable|null  $cancelledAt
      * @param  \Carbon\CarbonImmutable|null  $finishedAt
-     * @return \Illuminate\Bus\Batch
+     * @return \WPWhales\Bus\Batch
      */
     public function make(BatchRepository $repository,
                          string $id,

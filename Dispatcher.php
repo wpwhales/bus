@@ -1,17 +1,17 @@
 <?php
 
-namespace Illuminate\Bus;
+namespace WPWhales\Bus;
 
 use Closure;
-use Illuminate\Contracts\Bus\QueueingDispatcher;
-use Illuminate\Contracts\Container\Container;
-use Illuminate\Contracts\Queue\Queue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\PendingChain;
-use Illuminate\Pipeline\Pipeline;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\Jobs\SyncJob;
-use Illuminate\Support\Collection;
+use WPWhales\Contracts\Bus\QueueingDispatcher;
+use WPWhales\Contracts\Container\Container;
+use WPWhales\Contracts\Queue\Queue;
+use WPWhales\Contracts\Queue\ShouldQueue;
+use WPWhales\Foundation\Bus\PendingChain;
+use WPWhales\Pipeline\Pipeline;
+use WPWhales\Queue\InteractsWithQueue;
+use WPWhales\Queue\Jobs\SyncJob;
+use WPWhales\Support\Collection;
 use RuntimeException;
 
 class Dispatcher implements QueueingDispatcher
@@ -19,14 +19,14 @@ class Dispatcher implements QueueingDispatcher
     /**
      * The container implementation.
      *
-     * @var \Illuminate\Contracts\Container\Container
+     * @var \WPWhales\Contracts\Container\Container
      */
     protected $container;
 
     /**
      * The pipeline instance for the bus.
      *
-     * @var \Illuminate\Pipeline\Pipeline
+     * @var \WPWhales\Pipeline\Pipeline
      */
     protected $pipeline;
 
@@ -54,7 +54,7 @@ class Dispatcher implements QueueingDispatcher
     /**
      * Create a new command dispatcher instance.
      *
-     * @param  \Illuminate\Contracts\Container\Container  $container
+     * @param  \WPWhales\Contracts\Container\Container  $container
      * @param  \Closure|null  $queueResolver
      * @return void
      */
@@ -136,7 +136,7 @@ class Dispatcher implements QueueingDispatcher
      * Attempt to find the batch with the given ID.
      *
      * @param  string  $batchId
-     * @return \Illuminate\Bus\Batch|null
+     * @return \WPWhales\Bus\Batch|null
      */
     public function findBatch(string $batchId)
     {
@@ -146,8 +146,8 @@ class Dispatcher implements QueueingDispatcher
     /**
      * Create a new batch of queueable jobs.
      *
-     * @param  \Illuminate\Support\Collection|array|mixed  $jobs
-     * @return \Illuminate\Bus\PendingBatch
+     * @param  \WPWhales\Support\Collection|array|mixed  $jobs
+     * @return \WPWhales\Bus\PendingBatch
      */
     public function batch($jobs)
     {
@@ -157,8 +157,8 @@ class Dispatcher implements QueueingDispatcher
     /**
      * Create a new chain of queueable jobs.
      *
-     * @param  \Illuminate\Support\Collection|array  $jobs
-     * @return \Illuminate\Foundation\Bus\PendingChain
+     * @param  \WPWhales\Support\Collection|array  $jobs
+     * @return \WPWhales\Foundation\Bus\PendingChain
      */
     public function chain($jobs)
     {
@@ -232,7 +232,7 @@ class Dispatcher implements QueueingDispatcher
     /**
      * Push the command onto the given queue instance.
      *
-     * @param  \Illuminate\Contracts\Queue\Queue  $queue
+     * @param  \WPWhales\Contracts\Queue\Queue  $queue
      * @param  mixed  $command
      * @return mixed
      */
